@@ -28,3 +28,7 @@ class BookRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Book.objects.all()
     serializer_class = serializers.BookSerializer
     permission_classes = (IsAuthenticated,)
+
+
+def welcome(request):
+    print(request)
