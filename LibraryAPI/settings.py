@@ -109,7 +109,7 @@ DJOSER = {
     'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
     'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
 }
-
+#third commit
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
