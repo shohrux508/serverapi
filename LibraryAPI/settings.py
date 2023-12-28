@@ -102,13 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-DJOSER = {
-    'LOGIN_FIELD': 'email',
-    'USER_CREATE_PASSWORD_RETYPE': True,
-    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
-    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-}
+
 
 
 #commits 1234098-++++++++++)_+_+_+_+_+_+_+_+
