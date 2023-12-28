@@ -32,3 +32,5 @@ class BookRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
 
 def welcome(request):
     print(request)
+    print("Hello World")
+
