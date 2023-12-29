@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-
+from . import paginators
 from . import models
 from . import serializers
 
@@ -23,6 +23,7 @@ class BooksCreateViewAPI(generics.CreateAPIView):
 class AuthorsListViewAPI(generics.ListAPIView):
     queryset = models.Author.objects.all()
     serializer_class = serializers.AuthorSerializer
+    pagination_class = paginators.AuthorsListPaginators
 
 
 class AuthorsRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
