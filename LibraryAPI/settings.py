@@ -121,8 +121,7 @@ REST_FRAMEWORK = {
     ]
 }
 
-# commits 1234098-++++++++++)_+_+_+_+_+_+_+_+
-# successfully!
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
