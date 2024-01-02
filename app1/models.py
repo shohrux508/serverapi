@@ -37,3 +37,21 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+class BookReview(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now_add=True)
+    comment = models.TextField(default='Without comment')
+    grades = (
+        ('1', 'Worse'),
+        ('2', 'Bad'),
+        ('3', 'not Bad'),
+        ('4', 'Fine'),
+        ('5', 'Great'),
+    )
+    grade = models.CharField(max_length=10, choices=grades, default=grades[4])
+
+
+    def __str__(self):
+        return self.pk
