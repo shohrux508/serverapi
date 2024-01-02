@@ -17,7 +17,7 @@ class AuthorsCreateViewAPI(generics.CreateAPIView):
 
 class BooksCreateViewAPI(generics.CreateAPIView):
     queryset = models.Book.objects.all()
-    serializer_class = serializers.AuthorSerializer()
+    serializer_class = serializers.BookSerializer
 
 
 class AuthorsListViewAPI(generics.ListAPIView):
