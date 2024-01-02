@@ -10,6 +10,11 @@ urlpatterns = [
     path('api/v1/books/<int:pk>/', views.BookRetrieveUpdateDestroyAPIView.as_view()),
     path('api/v1/authors/search/', views.AuthorsSearchViewAPI.as_view()),
     path('api/v1/books/search/', views.BooksSearchViewAPI.as_view()),
+    path('api/v1/reviews/', views.BookReviewListViewAPI.as_view()),
+    path('api/v1/reviews/<int:pk>/', views.BookReviewRetrieveUpdateDestroyAPIView.as_view()),
+    path('api/v1/reviews/new/', views.BookReviewCreateViewAPI.as_view()),
+    path('api/v1/reviews/search/', views.BookReviewSearchViewAPI.as_view()),
+
 
 
 
