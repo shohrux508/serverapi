@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'channels',
+    'corsheaders',
     'rest_framework.authtoken',
     'djoser',
     'app1',
+    'notes',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+]
+
+CORS_ALLOWED_HOSTS = [
+    'https://localhost:8000'
 ]
 
 ROOT_URLCONF = 'LibraryAPI.urls'
@@ -69,8 +77,8 @@ TEMPLATES = [
         },
     },
 ]
+ASGI_APPLICATION = 'notes_project.routing.application'
 
-WSGI_APPLICATION = 'LibraryAPI.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -120,7 +128,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ]
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
