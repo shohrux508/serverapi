@@ -1,10 +1,8 @@
-import rest_framework.views
-from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.response import Response
-from . import paginators
+
 from . import models
+from . import paginators
 from . import serializers
 
 
@@ -51,6 +49,7 @@ class BookReviewRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIVi
 class BooksListViewAPI(generics.ListAPIView):
     queryset = models.Book.objects.all()
     serializer_class = serializers.BookSerializer
+    pagination_class = paginators.BooksListPaginator
 
 
 class BookRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
