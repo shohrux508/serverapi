@@ -1,5 +1,11 @@
-from rest_framework import generics
+import os
+
+from django.http import HttpResponse
+from rest_framework import generics, status
+from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from . import models
 from . import paginators
@@ -107,3 +113,15 @@ class BookReviewSearchViewAPI(generics.ListAPIView):
             queryset = queryset.filter(author=author)
         return queryset
 
+
+class FileDownloadViewAPI(APIView):
+    def get(self, request, file):
+        file_path = f'media/books/'
+        file_full_path = os.path.join(file_path, file)
+        if os.path.exists(file_full_path):
+            with open(file_full_path, 'rb') as file:
+                response = HttpResponse(file.read(), content_type='application/octet-stream')
+                response['Content-Disposition'] = f'attachment; filename="{file}"'
+                return response
+        else:
+            return Response({'error': 'File not found'}, status=404)
