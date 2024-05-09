@@ -38,6 +38,7 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+
 class BookReview(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -52,6 +53,6 @@ class BookReview(models.Model):
     )
     grade = models.CharField(max_length=10, choices=grades, default=grades[4])
 
-
     def __str__(self):
         return self.pk
+
